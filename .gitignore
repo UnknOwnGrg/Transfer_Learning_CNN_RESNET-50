@@ -26,3 +26,6 @@ test/
 .env
 .DS_Store
 Thumbs.db
+
+# Demo recordings (kept locally only)
+demo/

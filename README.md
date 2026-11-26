@@ -3,11 +3,6 @@
 An image classifier that tells cats from dogs, built with TensorFlow/Keras on top of a ResNet-50 pretrained on ImageNet. It is written for the Kaggle competition [Dogs vs. Cats Redux: Kernels Edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition). For every test image it predicts the **probability that the image is a dog** (1 = dog, 0 = cat).
 
 All the work is in one notebook: [`cnn_using_resnet50.ipynb`](cnn_using_resnet50.ipynb).
-
-## Demo
-
-A screen recording of the web app in action: [`demo/demo.mp4`](demo/demo.mp4)
-
 ## How it works
 
 1. **Load the data.** It unzips `train.zip` (25,000 labelled images such as `cat.123.jpg` and `dog.45.jpg`) and `test.zip` (12,500 unlabelled images such as `1.jpg`). Extraction is skipped if the folders already exist.
@@ -36,9 +31,7 @@ Cnn/
 ├── pyproject.toml             # project metadata and dependencies
 ├── uv.lock                    # locked dependency versions (uv)
 ├── backend/                   # FastAPI server that serves the model
-├── frontend/                  # web page to upload a photo and see the prediction
-├── demo/demo.mp4              # screen recording of the web app
-├── submission.csv             # Kaggle submission: id,label  (generated)
+├── frontend/                  # web page to upload a photo and see the prediction├── submission.csv             # Kaggle submission: id,label  (generated)
 ├── cats_dogs_resnet50.keras   # trained model (generated, not in git)
 ├── train.zip / test.zip       # dataset from Kaggle (not in git)
 └── train/ , test/             # extracted images (generated, not in git)
