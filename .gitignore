@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dataset (download from Kaggle; too large for git)
+train.zip
+test.zip
+train/
+test/
+
+# Trained model (~215 MB, over GitHub's 100 MB file limit)
+*.keras
+*.h5
+
+# IDE
+.idea/
+.vscode/
+
+# Environment / OS
+.env
+.DS_Store
+Thumbs.db
