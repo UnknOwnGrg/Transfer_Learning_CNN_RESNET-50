@@ -4,6 +4,10 @@ An image classifier that tells cats from dogs, built with TensorFlow/Keras on to
 
 All the work is in one notebook: [`cnn_using_resnet50.ipynb`](cnn_using_resnet50.ipynb).
 
+## Demo
+
+A screen recording of the web app in action: [`demo/demo.mp4`](demo/demo.mp4)
+
 ## How it works
 
 1. **Load the data.** It unzips `train.zip` (25,000 labelled images such as `cat.123.jpg` and `dog.45.jpg`) and `test.zip` (12,500 unlabelled images such as `1.jpg`). Extraction is skipped if the folders already exist.
@@ -33,6 +37,7 @@ Cnn/
 ├── uv.lock                    # locked dependency versions (uv)
 ├── backend/                   # FastAPI server that serves the model
 ├── frontend/                  # web page to upload a photo and see the prediction
+├── demo/demo.mp4              # screen recording of the web app
 ├── submission.csv             # Kaggle submission: id,label  (generated)
 ├── cats_dogs_resnet50.keras   # trained model (generated, not in git)
 ├── train.zip / test.zip       # dataset from Kaggle (not in git)
