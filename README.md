@@ -31,6 +31,8 @@ Cnn/
 ├── cnn_using_resnet50.ipynb   # the full pipeline: data, model, training, submission
 ├── pyproject.toml             # project metadata and dependencies
 ├── uv.lock                    # locked dependency versions (uv)
+├── backend/                   # FastAPI server that serves the model
+├── frontend/                  # web page to upload a photo and see the prediction
 ├── submission.csv             # Kaggle submission: id,label  (generated)
 ├── cats_dogs_resnet50.keras   # trained model (generated, not in git)
 ├── train.zip / test.zip       # dataset from Kaggle (not in git)
@@ -141,6 +143,32 @@ img = preprocess_input(img)[tf.newaxis, ...]
 p_dog = float(model.predict(img)[0, 0])
 print("Dog" if p_dog > 0.5 else "Cat", f"(P(dog) = {p_dog:.2f})")
 ```
+
+## Web app
+
+You can also try the trained model in the browser: upload a photo and the page shows "Cat" or "Dog" with the confidence. It has two parts:
+
+- **[`backend/`](backend/README.md):** a FastAPI server that loads `cats_dogs_resnet50.keras` and exposes `POST /predict`.
+- **[`frontend/`](frontend/README.md):** a plain HTML/CSS/JS page that sends the photo to the backend and shows the result.
+
+You need the trained model file first. Run the notebook to create it.
+
+Then start both parts, each in its own terminal:
+
+```bash
+# Terminal 1: backend
+cd backend
+pip install -r requirements.txt
+uvicorn app:app --reload --port 8000
+
+# Terminal 2: frontend
+cd frontend
+python -m http.server 5500
+```
+
+Open http://127.0.0.1:5500 in your browser. The API docs are at http://127.0.0.1:8000/docs.
+
+See each folder's README for the endpoints and configuration options.
 
 ## Submission format
 
