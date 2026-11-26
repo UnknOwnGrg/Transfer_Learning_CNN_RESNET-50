@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cat or Dog?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>Cat or Dog?</h1>
+      <p class="subtitle">Upload a photo and a ResNet-50 model will tell you which it is.</p>
+    </header>
+
+    <label id="dropzone" class="dropzone" for="file-input">
+      <input id="file-input" type="file" accept="image/*" hidden>
+      <img id="preview" alt="" hidden>
+      <span id="dropzone-text">Drag an image here or <u>click to choose</u></span>
+    </label>
+
+    <button id="predict-btn" type="button" disabled>Predict</button>
+
+    <section id="result" class="result" hidden aria-live="polite">
+      <p id="result-label" class="result-label"></p>
+      <div class="bar" aria-hidden="true">
+        <span class="bar-end">Cat</span>
+        <div class="bar-track"><div id="bar-fill" class="bar-fill"></div></div>
+        <span class="bar-end">Dog</span>
+      </div>
+      <p id="result-detail" class="result-detail"></p>
+    </section>
+
+    <p id="error" class="error" hidden role="alert"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
